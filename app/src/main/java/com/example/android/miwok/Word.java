@@ -7,7 +7,7 @@ package com.example.android.miwok;
  */
 
 public class Word {
-    //declaring members of the class (lowcase m letter)
+    //declaring members of the class (lowcase m letter) - these are state of the class
     private String mDefaultTranslation;
     private String mMiwokTranslation;
     private Integer mImageResourceID;
@@ -18,6 +18,7 @@ public class Word {
         mMiwokTranslation = miwokTranslation;
     }
 
+    // Creating all needed methods
     public String getDefaultTranslation(){
         return  mDefaultTranslation;
     }
