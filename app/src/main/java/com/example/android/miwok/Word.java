@@ -8,8 +8,9 @@ package com.example.android.miwok;
 
 public class Word {
     //declaring members of the class (lowcase m letter)
-    String mDefaultTranslation;
-    String mMiwokTranslation;
+    private String mDefaultTranslation;
+    private String mMiwokTranslation;
+    private Integer mImageResourceID;
 
     // Creating a constructor for that class
     public Word(String defaultTranslation, String miwokTranslation){
@@ -24,4 +25,6 @@ public class Word {
     public String getMiwokTranslation(){
         return mMiwokTranslation;
     }
+
+    public Integer getmImageResourceID(){ return mImageResourceID; }
 }
