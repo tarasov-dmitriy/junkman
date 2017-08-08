@@ -18,6 +18,13 @@ public class Word {
         mMiwokTranslation = miwokTranslation;
     }
 
+    // Creating a different constructor for that class
+    public Word(String defaultTranslation, String miwokTranslation, Integer imageResourceID){
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceID = imageResourceID;
+    }
+
     // Creating all needed methods
     public String getDefaultTranslation(){
         return  mDefaultTranslation;
