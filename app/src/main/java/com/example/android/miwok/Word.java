@@ -10,7 +10,10 @@ public class Word {
     //declaring members of the class (lowcase m letter) - these are state of the class
     private String mDefaultTranslation;
     private String mMiwokTranslation;
-    private Integer mImageResourceID;
+
+    /** Constant value that represents no image was provided for this word */
+    private static final Integer NO_IMAGE_PROVIDED = -1;
+    private Integer mImageResourceId = NO_IMAGE_PROVIDED;
 
     // Creating a constructor for that class
     public Word(String defaultTranslation, String miwokTranslation){
@@ -22,7 +25,7 @@ public class Word {
     public Word(String defaultTranslation, String miwokTranslation, Integer imageResourceID){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
-        mImageResourceID = imageResourceID;
+        mImageResourceId = imageResourceID;
     }
 
     // Creating all needed methods
@@ -34,5 +37,7 @@ public class Word {
         return mMiwokTranslation;
     }
 
-    public Integer getmImageResourceID(){ return mImageResourceID; }
+    public Integer getmImageResourceID(){ return mImageResourceId; }
+
+    public boolean hasImage() { return mImageResourceId != NO_IMAGE_PROVIDED; }
 }
