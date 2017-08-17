@@ -15,17 +15,22 @@ public class Word {
     private static final Integer NO_IMAGE_PROVIDED = -1;
     private Integer mImageResourceId = NO_IMAGE_PROVIDED;
 
+    /** Audio reasource id for the word **/
+    private int mAudioResiourceId;
+
     // Creating a constructor for that class
-    public Word(String defaultTranslation, String miwokTranslation){
+    public Word(String defaultTranslation, String miwokTranslation, int audioResiourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResiourceId = audioResiourceId;
     }
 
     // Creating a different constructor for that class
-    public Word(String defaultTranslation, String miwokTranslation, Integer imageResourceID){
+    public Word(String defaultTranslation, String miwokTranslation, Integer imageResourceID, int audioResiourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceID;
+        mAudioResiourceId = audioResiourceId;
     }
 
     // Creating all needed methods
@@ -40,4 +45,6 @@ public class Word {
     public Integer getmImageResourceID(){ return mImageResourceId; }
 
     public boolean hasImage() { return mImageResourceId != NO_IMAGE_PROVIDED; }
+
+    public int getAudioResiourceId() {return mAudioResiourceId; }
 }
