@@ -35,7 +35,7 @@ public class ColorsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.list_item, container, false);
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
         // creating new array of words
         final ArrayList<Word> words = new ArrayList<>();
@@ -51,7 +51,7 @@ public class ColorsFragment extends Fragment {
 
         WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_colors);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.colorsList);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(adapter);
 

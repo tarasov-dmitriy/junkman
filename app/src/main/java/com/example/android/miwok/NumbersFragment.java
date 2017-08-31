@@ -1,6 +1,5 @@
 package com.example.android.miwok;
 
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,7 +22,8 @@ public class NumbersFragment extends Fragment {
     private MediaPlayer.OnCompletionListener mCompleteListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
-
+            // Now that the sound file has finished playing, release the media player resources.
+            releaseMediaPlayer();
         }
     };
 
@@ -31,11 +31,11 @@ public class NumbersFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.list_item, container, false);
+
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
 
         // creating new array of words
         final ArrayList<Word> words = new ArrayList<>();
@@ -51,11 +51,11 @@ public class NumbersFragment extends Fragment {
         words.add(new Word("nine", "wo'e", R.drawable.number_nine, R.raw.number_nine));
         words.add(new Word("ten", "na'aacha", R.drawable.number_ten, R.raw.number_ten));
 
-        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_numbers);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_numbers);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.numbersList);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
-        listView.setAdapter(adapter);
+        listView.setAdapter(itemsAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -100,8 +100,6 @@ public class NumbersFragment extends Fragment {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
-
         }
     }
-
 }
